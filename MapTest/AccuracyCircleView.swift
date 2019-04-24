@@ -11,11 +11,12 @@ import UIKit
 class AccuracyCircleView: UIView {
 //    var label: UILabel!
     var radius: CGFloat = 100
-    let color = UIColor.black.withAlphaComponent(0.75)
+    let color = UIColor.white.withAlphaComponent(0.75)
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.backgroundColor = UIColor.clear
+        isUserInteractionEnabled = false
 //        label = UILabel(frame: CGRect(x: frame.size.width / 4,
 //                                      y: frame.size.height - 20,
 //                                      width: frame.size.width / 4,
@@ -27,6 +28,7 @@ class AccuracyCircleView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
+        isUserInteractionEnabled = false
     }
     
     override func layoutSubviews() {

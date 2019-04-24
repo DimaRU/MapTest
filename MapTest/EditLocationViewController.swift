@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import MapKit
+import PromiseKit
 
 class EditLocationViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
@@ -22,15 +23,15 @@ class EditLocationViewController: UIViewController {
 
         crossHairView = CrossHairView()
         accuracyCircleView = AccuracyCircleView()
-        mapView.addSubview(crossHairView)
-        mapView.addSubview(accuracyCircleView)
+        view.addSubview(crossHairView)
+        view.addSubview(accuracyCircleView)
         setCurrentLocation()
     }
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        print("viewWillLayoutSubviews", mapView.frame)
-        let subFrame = CGRect(origin: .zero, size: mapView.frame.size)
+        print("viewWillLayoutSubviews", view.frame)
+        let subFrame = CGRect(origin: .zero, size: view.frame.size)
         crossHairView.frame = subFrame
         accuracyCircleView.frame = subFrame
     }
@@ -67,12 +68,12 @@ class EditLocationViewController: UIViewController {
     }
 
     private func setCurrentLocation() {
-//        CLLocationManager.requestAuthorization(type: .whenInUse)
-//            .then { _ in
-//                CLLocationManager.requestLocation()
-//            }.done { location in
-//                self.mapView.setCenterCoordinate(centerCoordinate: location.last!.coordinate, zoomLevel: 14, animated: true)
-//            }.ignoreErrors()
+        CLLocationManager.requestAuthorization(type: .whenInUse)
+            .then { _ in
+                CLLocationManager.requestLocation()
+            }.done { location in
+                self.mapView.setCenterCoordinate(centerCoordinate: location.last!.coordinate, zoomLevel: 14, animated: true)
+            }.ignoreErrors()
     }
 }
 

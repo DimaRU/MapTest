@@ -11,19 +11,21 @@ import UIKit
 class CrossHairView: UIView {
 //    var latLabel: UILabel!
 //    var lngLabel: UILabel!
-    let color = UIColor.black.withAlphaComponent(0.75)
+    let color = UIColor.white.withAlphaComponent(0.75)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clear
-        autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin, .flexibleBottomMargin]
+        backgroundColor = UIColor.clear
+        isUserInteractionEnabled = false
+//        autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin, .flexibleBottomMargin]
         initLabels()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.backgroundColor = UIColor.clear
-        autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin, .flexibleBottomMargin]
+//        autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleTopMargin, .flexibleLeftMargin, .flexibleRightMargin, .flexibleBottomMargin]
+        isUserInteractionEnabled = false
         initLabels()
     }
     
