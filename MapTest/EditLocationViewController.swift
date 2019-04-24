@@ -13,16 +13,16 @@ import PromiseKit
 
 class EditLocationViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
-    var crossHairView: CrossHairView!
-    var accuracyCircleView: AccuracyCircleView!
+    let crossHairView = CrossHairView()
+    let accuracyCircleView = AccuracyCircleView()
 
     var location: CLLocation!       // Initial location
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        crossHairView = CrossHairView()
-        accuracyCircleView = AccuracyCircleView()
+//        crossHairView = CrossHairView()
+//        accuracyCircleView = AccuracyCircleView()
         view.addSubview(crossHairView)
         view.addSubview(accuracyCircleView)
         setCurrentLocation()
@@ -72,7 +72,8 @@ class EditLocationViewController: UIViewController {
             .then { _ in
                 CLLocationManager.requestLocation()
             }.done { location in
-                self.mapView.setCenterCoordinate(centerCoordinate: location.last!.coordinate, zoomLevel: 14, animated: true)
+//                self.mapView.setCenterCoordinate(centerCoordinate: location.last!.coordinate, zoomLevel: 14, animated: true)
+                print(location)
             }.ignoreErrors()
     }
 }
@@ -80,11 +81,6 @@ class EditLocationViewController: UIViewController {
 extension EditLocationViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-//        delayMapChangeTimer?.invalidate()
-//
-//        delayMapChangeTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { [weak self] _ in
-//            guard let self = self else { return }
-//            print("Start map change")
-//        }
+        crossHairView.show(coordinate: mapView.centerCoordinate)
     }
 }

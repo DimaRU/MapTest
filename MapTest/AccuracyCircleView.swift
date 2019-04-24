@@ -8,39 +8,32 @@
 
 import UIKit
 
-class AccuracyCircleView: UIView {
-//    var label: UILabel!
+class AccuracyCircleView: EditLocationOverlayView {
+    let accLabel = UILabel()
     var radius: CGFloat = 100
-    let color = UIColor.white.withAlphaComponent(0.75)
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.backgroundColor = UIColor.clear
-        isUserInteractionEnabled = false
-//        label = UILabel(frame: CGRect(x: frame.size.width / 4,
-//                                      y: frame.size.height - 20,
-//                                      width: frame.size.width / 4,
-//                                      height: 20))
-//        label.text = "Acc: ???"
-//        addSubview(label)
+        addSubview(makeLabel(accLabel, rect: CGRect(x: 0, y: 0,
+                                                    width: bounds.size.width / 4, height: 20)))
+        accLabel.text = "acc:"
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clear
-        isUserInteractionEnabled = false
+        addSubview(makeLabel(accLabel, rect: CGRect(x: 0, y: 0,
+                                                    width: bounds.size.width / 4, height: 20)))
+        accLabel.text = "acc:"
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        print(frame)
 
-//        let w = frame.size.width
-//        let h = frame.size.height
-//        let labelWrapper: UIView? = label.superview
-//        labelWrapper?.frame = CGRect(x: w / 4, y: h - (labelWrapper?.frame.size.height ?? 0),
-//                                     width: w / 4, height: labelWrapper?.frame.size.height ?? 0)
-//        labelWrapper?.layer.mask?.frame = labelWrapper?.bounds ?? CGRect.zero
+        let coord45 = radius * cos(.pi / 4)
+        accLabel.superview?.frame = CGRect(x: bounds.size.width / 2 + coord45 + 1,
+                                           y: bounds.size.height / 2 + coord45 + 1,
+                                           width: bounds.size.width / 4, height: 20)
+        accLabel.textAlignment = .center
     }
     
     override func draw(_ rect: CGRect) {
@@ -52,5 +45,9 @@ class AccuracyCircleView: UIView {
                         endAngle: 2 * .pi,
                         clockwise: true)
         context.strokePath()
+    }
+    
+    func show(accuracy: Double) {
+        accLabel.text = "acc: \(accuracy)"
     }
 }
