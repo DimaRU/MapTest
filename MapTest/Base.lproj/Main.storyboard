@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ljp-kK-bPE">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Edit Location-->
+        <scene sceneID="nw8-P0-efs">
+            <objects>
+                <viewController storyboardIdentifier="EditLocationViewController" id="868-P3-wCM" customClass="EditLocationViewController" customModule="MapTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vIJ-LJ-qaM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wf8-Wo-v9Q">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <outlet property="delegate" destination="868-P3-wCM" id="6w2-Re-Op8"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8PV-IY-l2c">
+                                <rect key="frame" x="337" y="298.5" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="1Uf-6i-Eeh"/>
+                                    <constraint firstAttribute="height" constant="30" id="PVx-ns-wmw"/>
+                                </constraints>
+                                <state key="normal" image="1474761840_add"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tapButtonPlus:" destination="868-P3-wCM" eventType="touchUpInside" id="myp-61-Hea"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzc-7C-rG6">
+                                <rect key="frame" x="337" y="338.5" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Qtg-kt-bJe"/>
+                                    <constraint firstAttribute="height" constant="30" id="lcX-me-Dr6"/>
+                                </constraints>
+                                <state key="normal" image="1474761917_sub"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tapButtonMinus:" destination="868-P3-wCM" eventType="touchUpInside" id="AXV-1f-XhJ"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uJd-cG-OtH">
+                                <rect key="frame" x="236" y="631" width="131" height="29"/>
+                                <color key="backgroundColor" white="1" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segments>
+                                    <segment title="Hybrid"/>
+                                    <segment title="Sattelite"/>
+                                </segments>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="mapTypeChange:" destination="868-P3-wCM" eventType="valueChanged" id="iW5-AZ-C5p"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEF-n4-yOm">
+                                <rect key="frame" x="337" y="585" width="30" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="0.33000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4AT-Tj-0xl"/>
+                                    <constraint firstAttribute="width" constant="30" id="Xjn-NM-1Dn"/>
+                                    <constraint firstAttribute="height" constant="30" id="Zff-Ee-6ph"/>
+                                    <constraint firstAttribute="width" constant="30" id="wC4-ke-goG"/>
+                                </constraints>
+                                <state key="normal" image="navigation"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tapButtonCenter:" destination="868-P3-wCM" eventType="touchUpInside" id="Lvf-kG-ewH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UM0-qa-pEt" firstAttribute="trailing" secondItem="8PV-IY-l2c" secondAttribute="trailing" constant="8" id="0N0-to-gug"/>
+                            <constraint firstItem="tzc-7C-rG6" firstAttribute="centerY" secondItem="vIJ-LJ-qaM" secondAttribute="centerY" constant="20" id="2bQ-7V-FRu"/>
+                            <constraint firstItem="UM0-qa-pEt" firstAttribute="bottom" secondItem="uJd-cG-OtH" secondAttribute="bottom" constant="8" id="64a-IL-etM"/>
+                            <constraint firstItem="uJd-cG-OtH" firstAttribute="top" secondItem="uEF-n4-yOm" secondAttribute="bottom" constant="16" id="DnU-vX-jJc"/>
+                            <constraint firstItem="UM0-qa-pEt" firstAttribute="trailing" secondItem="uJd-cG-OtH" secondAttribute="trailing" constant="8" id="DtB-2G-w6e"/>
+                            <constraint firstItem="wf8-Wo-v9Q" firstAttribute="top" secondItem="UM0-qa-pEt" secondAttribute="top" id="Jf6-kk-q1C"/>
+                            <constraint firstItem="UM0-qa-pEt" firstAttribute="trailing" secondItem="tzc-7C-rG6" secondAttribute="trailing" constant="8" id="LkQ-vS-adB"/>
+                            <constraint firstItem="wf8-Wo-v9Q" firstAttribute="bottom" secondItem="UM0-qa-pEt" secondAttribute="bottom" id="cm5-up-PA1"/>
+                            <constraint firstItem="wf8-Wo-v9Q" firstAttribute="leading" secondItem="vIJ-LJ-qaM" secondAttribute="leading" id="eLa-wb-4iG"/>
+                            <constraint firstItem="uJd-cG-OtH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UM0-qa-pEt" secondAttribute="leading" constant="8" id="mlO-aJ-J2P"/>
+                            <constraint firstItem="8PV-IY-l2c" firstAttribute="centerY" secondItem="vIJ-LJ-qaM" secondAttribute="centerY" constant="-20" id="pfQ-SN-4nG"/>
+                            <constraint firstItem="UM0-qa-pEt" firstAttribute="trailing" secondItem="uEF-n4-yOm" secondAttribute="trailing" constant="8" id="u37-jP-Dnx"/>
+                            <constraint firstAttribute="trailing" secondItem="wf8-Wo-v9Q" secondAttribute="trailing" id="yDu-L7-ZDI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UM0-qa-pEt"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Location" id="wUl-eH-nT7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LgC-6B-GR2">
+                            <connections>
+                                <action selector="tapCancelButton:" destination="868-P3-wCM" id="H9S-32-M8a"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Uec-wm-8rG">
+                            <connections>
+                                <action selector="tapDoneButton:" destination="868-P3-wCM" id="Pv7-Pm-lwJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="wf8-Wo-v9Q" id="bQl-FE-M21"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3k6-ta-065" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1591.2" y="817.24137931034488"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zeT-Q6-yHE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ljp-kK-bPE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OAV-2G-d7H">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="868-P3-wCM" kind="relationship" relationship="rootViewController" id="jao-Ka-BU0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rkg-n9-6AP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="833" y="817"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1474761840_add" width="128" height="128"/>
+        <image name="1474761917_sub" width="128" height="128"/>
+        <image name="navigation" width="170.66667175292969" height="170.66667175292969"/>
+    </resources>
+</document>
