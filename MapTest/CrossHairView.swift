@@ -58,7 +58,7 @@ class CrossHairView: EditLocationOverlayView {
     }
     
     public func show(coordinate: CLLocationCoordinate2D) {
-        latLabel.text = "lat: \(coordinate.latitude)"
-        lngLabel.text = "lng: \(coordinate.longitude)"
+        latLabel.text = "lat: \(Float(coordinate.latitude))"
+        lngLabel.text = "lng: \(Float(coordinate.longitude))"
     }
 }
